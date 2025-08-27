@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Job;
 use Illuminate\Http\Request;
 
 class DetailController extends Controller
 {
-    public function View(){
-        
+  public function view($id)
+{
+    $job = Job::with('company')->findOrFail($id);
+        return view('detail');
+                return view('detail', compact('job'));
 
-    }
+
+}
 }

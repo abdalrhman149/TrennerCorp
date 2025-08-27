@@ -4,8 +4,7 @@
 
 
 
-
-
+{{--
 <main class="main">
 
     <!-- Page Title -->
@@ -15,7 +14,7 @@
           <div class="row d-flex justify-content-center text-center">
             <div class="col-lg-8">
               <h1>Course Details</h1>
-              <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+              <p class="mb-0"></p>
             </div>
           </div>
         </div>
@@ -38,23 +37,23 @@
         <div class="row">
           <div class="col-lg-8">
             <img src="assets/img/course-details.jpg" class="img-fluid" alt="">
-            <h3>Job information</h3>
+            <h3>
+            </h3>
             <p>
-        {{}}the information
     </p>
           </div>
           <div class="col-lg-4">
 
             <div class="course-info d-flex justify-content-between align-items-center">
-              <h5>Company</h5>
-              <p><a href="#">X</a></p>
+              <h5>22</h5>
+              <p><a href="#"></a></p>
             </div>
 
 
 
             <div class="course-info d-flex justify-content-between align-items-center">
               <h5>Available Seats</h5>
-              <p>30</p>
+              <p>{{$job->person_need}}</p>
             </div>
 
             <div class="course-info d-flex justify-content-between align-items-center">
@@ -166,6 +165,6 @@
         </div>
     </section>
 
-  </main>
+  </main> --}}
 
   @endsection

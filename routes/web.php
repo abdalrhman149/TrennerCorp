@@ -26,7 +26,12 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/main', [MainController::class, 'main']);
 
-Route::get('/detail/{id?}',[DetailController::class, 'View']);
+Route::get('/detail/{id}', [DetailController::class, 'view']);
+Route::get('/detail', function(){
+
+    return view('detail');
+});
+
 
 //////////////////////////////////////////////////////////////////////
 Route::get('/addcompany', function(){
