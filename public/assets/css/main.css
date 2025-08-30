@@ -1922,9 +1922,7 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
+
 
 a.btn-link {
     display: inline-block;
@@ -1941,3 +1939,12 @@ a.btn-link:hover {
     color: #fff;
 }
 
+.btn-green {
+    background-color: #28a745; /* Bootstrap green */
+    color: #fff;               /* White text */
+    border: none;
+}
+
+.btn-green:hover {
+    background-color: #218838; /* Darker green on hover */
+}

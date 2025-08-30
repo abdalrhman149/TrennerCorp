@@ -10,7 +10,7 @@ class DetailController extends Controller
   public function view($id)
 {
     $job = Job::with('company')->findOrFail($id);
-        return view('detail');
+
                 return view('detail', compact('job'));
 
 

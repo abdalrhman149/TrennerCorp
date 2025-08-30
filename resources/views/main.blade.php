@@ -1,4 +1,6 @@
-@extends('master') @section('content1')
+@extends('master')
+
+@section('content1')
     <section id="courses" class="courses section"> <!-- Section Title -->
         <div class="container section-title aos-init aos-animate" data-aos="fade-up">
             <p>Popular Trening</p>
@@ -25,9 +27,13 @@
                                     <div class="trainer-rank d-flex align-items-center"> <i
                                             class="bi bi-person-fill user-icon"></i>&nbsp;{{ $job->person_need }} </div>
                                 </div>
+
                             </div>
+
                         </div>
-                    </div> <!-- End Course Item-->
+                    </div>
+
+                    <!-- End Course Item-->
                 @endforeach
             </div> <!-- Pagination -->
             <div class="pagination-wrap d-flex justify-content-center mt-4">
