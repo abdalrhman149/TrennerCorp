@@ -3,7 +3,6 @@
 use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\JobController;
-use App\Http\Controllers\MainContrller;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
