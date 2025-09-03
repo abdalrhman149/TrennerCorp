@@ -21,60 +21,40 @@
                                 </div>
                             @endif
 
-                            <div class="contact-form">
-                                <div class="contact-form">
-                                    <form method="post" action="/storejob">
-                                        @csrf
-                                        <p>
+                          <form method="post" action="/storejob">
+    @csrf
 
-                                            <input type="text" placeholder="Job Title" name="title"
-                                                value="{{ old('title') }}" style="width:100%">
-                                            <span class="text-danger">
-                                                @error('title')
-                                                    {{ $message }}
-                                                @enderror
-                                            </span>
-                                        </p>
+    <p>
+        <input type="text" placeholder="Job Title" name="title"
+            value="{{ old('title') }}" class="form-control">
+        <span class="text-danger">@error('title') {{ $message }} @enderror</span>
+    </p>
 
-                                        <p>
-                                            <input type="text" placeholder="Category" name="category"
-                                                value="{{ old('category') }}" style="width:100%">
-                                            <span class="text-danger">
-                                                @error('category')
-                                                    {{ $message }}
-                                                @enderror
-                                            </span>
-                                        </p>
+    <p>
+        <input type="text" placeholder="Category" name="category"
+            value="{{ old('category') }}" class="form-control">
+        <span class="text-danger">@error('category') {{ $message }} @enderror</span>
+    </p>
 
-                                        <p>
-                                            <input type="text" placeholder="Requirements" name="requirements"
-                                                value="{{ old('requirements') }}" style="width:100%">
-                                            <span class="text-danger">
-                                                @error('requirements')
-                                                    {{ $message }}
-                                                @enderror
-                                            </span>
-                                        </p>
+    <p>
+        <input type="text" placeholder="Requirements" name="requirements"
+            value="{{ old('requirements') }}" class="form-control">
+        <span class="text-danger">@error('requirements') {{ $message }} @enderror</span>
+    </p>
 
-                                        {{-- <p>//// this line for company auth////
-                                    <select name="company_id" style="width:100%">
-                                        <option value="">-- Select Company --</option>
-                                        @foreach ($companies as $company)
-                                            <option value="{{ $company->id }}">{{ $company->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    <span class="text-danger">@error('company_id') {{ $message }} @enderror</span>
-                                </p> --}}
+    <!-- الشركة الحالية (مخفية) -->
+    <input type="hidden" name="company_id" value="{{ auth()->user()->id }}">
 
-                                        <p>
-                                            <input type="number" min="1" max="50" placeholder="Persons Needed"
-                                                name="person_need" value="{{ old('person_need') }}" style="width:100%">
-                                            <span class="text-danger">
-                                                @error('person_need')
-                                                    {{ $message }}
-                                                @enderror
-                                            </span>
-                                        </p>
+    <p>
+        <input type="number" min="1" max="50" placeholder="Persons Needed"
+            name="person_need" value="{{ old('person_need') }}" class="form-control">
+        <span class="text-danger">@error('person_need') {{ $message }} @enderror</span>
+    </p>
+
+    <p>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </p>
+</form>
 
                                         <p>
                                             <input type="submit" value="Submit" class="btn btn-primary">

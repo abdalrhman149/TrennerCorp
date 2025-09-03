@@ -5,7 +5,7 @@
 
 
 
-{{-- @if (auth()->check()) --}}
+@if (auth()->check())
      <div class="product-section mt-150 mb-150">
         @csrf
         <div class="container">
@@ -83,13 +83,13 @@
         </div>
     </div>
 
-{{-- @else
+@else
 
 <b>status:you are not Authonticate
 </b>
 
 
-@endif --}}
+@endif 
 
 
 

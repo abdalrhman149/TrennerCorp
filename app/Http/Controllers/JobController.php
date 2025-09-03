@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class JobController extends Controller
 {
 
-  
+
     public function Addjob()
     {
         $job = Job::all();
@@ -31,7 +31,7 @@ class JobController extends Controller
         $newjob->category = $request->category;
         $newjob->requirements = $request->requirements;
         $newjob->person_need = $request->person_need;
-                $newjob->company_id = "1";
+        $newjob->company_id = auth()->user()->id;
 
         $newjob->save();
 
