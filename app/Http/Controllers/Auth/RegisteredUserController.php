@@ -27,24 +27,41 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
-    {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
-
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        event(new Registered($user));
-
-        Auth::login($user);
-
-        return redirect(route('dashboard', absolute: false));
+   public function store(Request $request): RedirectResponse
+{
+    $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+        'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        'phone' => ['required', 'string', 'max:20'],
+    'description' => ['nullable', 'file', 'mimes:pdf,doc,docx,txt', 'max:5120'], // 5MB
+        'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,gif', 'max:2048'],
+    ]);
+$descriptionPath = null;
+if ($request->hasFile('description')) {
+    $descriptionPath = $request->file('description')->store('descriptions', 'public');
+}
+    // رفع الصورة إن وُجدت
+    $imagePath = null;
+    if ($request->hasFile('image')) {
+        $imagePath = $request->file('image')->store('users', 'public');
     }
+
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+        'phone' => $request->phone,
+        'description' =>$descriptionPath,
+        'imagepath' => $imagePath,
+        'role' => 'user', // افتراضي
+    ]);
+
+    event(new Registered($user));
+
+    Auth::login($user);
+
+    return redirect('/main');
+}
+
 }

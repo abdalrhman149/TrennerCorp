@@ -21,7 +21,7 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('/main', [MainController::class, 'main']);
+Route::get('/main', [MainController::class, 'main'])->middleware(['auth', 'verified']);
 
 Route::get('/detail/{id}', [DetailController::class, 'view']);
 Route::get('/detail', function(){
