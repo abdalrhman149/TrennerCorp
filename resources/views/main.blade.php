@@ -10,8 +10,9 @@
                 @forelse ($jobs as $job)
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch aos-init aos-animate" data-aos="zoom-in"
                         data-aos-delay="100">
-                        <div class="course-item"> <img src="{{ asset($job->company->imagepath) }}" class="img-fluid"
-                                alt="...">
+                        <div class="course-item"><img
+                                src="{{ $job->company && $job->user->imagepath ? asset($job->user->imagepath) : asset('assets/img/default-company.png') }}"
+                                class="img-fluid" alt="{{ $job->user->name ?? 'Company' }}">
                             <div class="course-content">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <p class="category">{{ $job->category }}</p>
@@ -23,7 +24,7 @@
                                 <p class="description">{{ $job->title }}</p>
                                 <div class="trainer d-flex justify-content-between align-items-center">
                                     <div class="trainer-profile d-flex align-items-center"> <em> Company:
-                                            {{ $job->company->name ?? 'No company assigned' }}</em> </div>
+                                            {{ $job->user->name ?? 'No company assigned' }}</em> </div>
                                     <div class="trainer-rank d-flex align-items-center"> <i
                                             class="bi bi-person-fill user-icon"></i>&nbsp;{{ $job->person_need }} </div>
                                 </div>

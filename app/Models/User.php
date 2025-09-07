@@ -28,7 +28,7 @@ class User extends Authenticatable
     'description',
     'role',
 ];
-    
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -39,6 +39,10 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    public function jobs()
+{
+    return $this->hasMany(Job::class, 'company_id');
+}
 
     /**
      * Get the attributes that should be cast.

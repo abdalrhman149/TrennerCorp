@@ -17,10 +17,10 @@ class Job extends Model
         'requirements',
     ];
 
-    // Relationship: A job belongs to a company
-    public function company()
+    // Relationship: A job belongs to a company user
+    public function user()
     {
-        return $this->belongsTo(Company::class, 'company_id');
+        return $this->belongsTo(User::class, 'company_id');
     }
 
 }

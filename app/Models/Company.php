@@ -17,8 +17,5 @@ class Company extends Model
     ];
 
     // Relationship: A company has many jobs
-    public function jobs()
-    {
-        return $this->hasMany(Job::class, 'company_id');
-    }
+
 }

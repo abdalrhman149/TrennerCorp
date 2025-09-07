@@ -30,6 +30,7 @@ Route::get('/detail', function(){
 });
 
 
+
 //////////////////////////////////////////////////////////////////////
 Route::get('/addcompany', function(){
     return view('company.addcompany');
@@ -46,6 +47,9 @@ Route::get('/addjob',function(){
 Route::post('/storejob', [JobController::class, 'Storejob']);
 Route::get('/viewjob', [JobController::class, 'Addjob']);
 /////////////////////
+Route::post('/jobs/{id}/accept', [JobController::class, 'accept'])->name('jobs.accept');
+
+Route::post('/jobs/{id}/cv_file', [JobController::class, 'CV'])->name('jobs.cv');
 
 
 require __DIR__.'/auth.php';
