@@ -118,7 +118,7 @@
     </div>
 @endsection
 
-{{-- 
+{{--
 <div class="mb-3">
     <label for="description" class="form-label">Description File</label>
     <input id="description" type="file" name="description"
